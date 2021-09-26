@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const m_split = "#9e$q3_1j"
+        const str_mark = "#t$e1_3io95Teq"
+        let str = `
+            m("32 we");
+            b(() => {
+                t();
+                b();
+            });
+        `
+        //借尸还魂 采用标记法保留字符串中的空
+        str_cache = []
+        str = str.replace(/\".*\"/g, (v) => {
+            // console.log(v)
+            str_cache.push(v);
+            return str_mark;
+        })
+        str = str.replace(/[\s]/g, "")
+        
+        str = str.replace(/#t\$e1_3io95Teq/, (v) => {
+            const temp = str_cache.pop()
+            console.log(temp)
+            return temp
+        })
+
+        
+        console.log(str)
+        let re = new RegExp(/\{.*\}/gu)
+        // console.log(str.matchAll(re))
+        
+
+
+        let cache = []
+        // let tag = 0
+
+        str = str.replace(re, (v, ...args) => {
+            // console.log(v)
+            cache.push(v)
+            return `${m_split}`
+        })
+
+        // console.log(cache)
+
+        let c_tag = 0
+        const func_re = /.*#9e\$q3_1j.*/
+        let lan = str.split(";")
+        for(let i=0; i<lan.length; i++) {
+            if(func_re.test(lan[i])) {
+                if(c_tag < cache.length) {
+                    lan[i] = lan[i].replace(/#9e\$q3_1j/,cache[c_tag++]) 
+                } else {
+                    console.error("wrong input")
+                }
+                
+            }
+        }
+
+        // console.log(lan)
+        // console.log(str)
+
+
+
+    </script>
+</body>
+</html>

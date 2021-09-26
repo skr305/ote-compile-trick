@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //编译参数表如 (a:func, b:int, c:str, d:str) {}
+        const tst = [
+            "a:func,b:int,d:str"
+        ]
+
+        const ava_typ = {
+            func: true,
+            int: true,
+            str: true
+        }
+        tst.forEach(str => {
+            str.split.forEach(v => {
+                let ele = v.split(":");
+                if(ele.length != 2) {
+                    console.error("bad input args")
+                    return
+                }
+                console.log(ele[0].match(/[a-z|A-Z|_|\$][\w|\$]*/))
+                if(ava_typ[ele[1]]) {
+                    return true
+                }
+            })
+        })
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "coder",
+  "version": "1.0.0",
+  "description": "editor for the otter language",
+  "main": "main.js",
+  "scripts": {
+    "test": "npm run dev"
+  },
+  "keywords": [
+    "node",
+    "electron"
+  ],
+  "author": "otter",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^13.1.7",
+    "tailwindcss": "^2.2.4"
+  }
+}

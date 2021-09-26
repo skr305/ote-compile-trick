@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let test = `
+            m();
+            h:int=3;
+            d();
+        `
+
+        const re = /([^;^\s]+):(.+)=([^;^\s]+)/
+        console.log(test.match(re));
+
+
+        const test1 = `
+        defineVar("b","str",3);defineVar("m","func",(){defineVar("a","str",5);log(null);log(b);return(5);});log(m());defineVar("h","int",3);;if(b,(){log(b);});
+        `
+
+        const re1 = //
+    </script>
+</body>
+</html>

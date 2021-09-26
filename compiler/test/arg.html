@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 参数编译 -->
+    <script>
+        //a,b,c => 
+        //四种可能 (){}函数, "", number, a 单纯的变量
+        const tst = ["a,b,c,_e$3", '"e",2', '(){}'];
+        
+        const tst1 = " 233"
+        const no_st_s_re = /^()/
+
+        
+        const str_re = /".*"/
+        const int_re = /\d+/g
+        const func_re = /\(.*\)\{.*\}/
+        const var_re = /[a-z|A-Z|_|\$][\w|\$]*/
+
+        console.log("2".match(int_re))
+
+        const chain = [
+            [str_re],
+            [int_re],
+            [func_re],
+            [var_re]
+        ]
+
+        tst.forEach(val => {
+            val.split(",").forEach(_arg  => {
+                for(let re of chain) {
+            
+                    if(_arg.match(re[0]) != null && _arg.match(re[0])[0] == _arg) {
+                        console.log(re, _arg)
+                    }
+                } 
+        })})
+
+    </script>
+</body>
+</html>
